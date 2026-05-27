@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python build / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Streamlit local state
+.streamlit/secrets.toml
+
+# Local-only reference materials (kept outside the repo)
+Two-stage_modelv2.ipynb
+claude_code_briefing.md
