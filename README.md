@@ -2,6 +2,8 @@
 
 Predicts gross revenue (`avg_gross_usd`) for a configured concert using artist, venue, ticket price, date, and market. Includes a Streamlit dashboard for interactive use.
 
+**Live demo:** https://rna-pred-model.streamlit.app/
+
 This is a **demo prototype** for an internal conversation, not production software. It is a *prediction* tool, not a *recommendation* tool — see the "About this tool" section in the dashboard for the full honesty disclosure.
 
 ---
