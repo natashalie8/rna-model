@@ -340,7 +340,7 @@ with tab_predict:
                            gridcolor="rgba(148,163,184,0.08)", zeroline=False),
                 showlegend=False, bargap=0.05,
             )
-            st.plotly_chart(fig_peer, use_container_width=True)
+            st.plotly_chart(fig_peer, width='stretch')
 
             pct_val = float((peers["revenue_dollars"] <= result.pred_dollars).mean() * 100)
             pct_int = int(round(pct_val))
@@ -438,7 +438,7 @@ with tab_predict:
                            gridcolor="rgba(148,163,184,0.08)", zeroline=False),
                 showlegend=False,
             )
-            st.plotly_chart(fig_curve, use_container_width=True)
+            st.plotly_chart(fig_curve, width='stretch')
 
             # Price gap note
             gap_pct = (best_price - user_price) / user_price * 100 if user_price > 0 else 0
@@ -471,7 +471,7 @@ with tab_predict:
                         "Rec. revenue": mu.fmt_dollars(c_df.loc[bi, "revenue"]),
                         "Rec. fill %":  f"{c_df.loc[bi, 'fill_pct']:.0f}%",
                     })
-                st.dataframe(pd.DataFrame(sweep_rows), hide_index=True, use_container_width=True)
+                st.dataframe(pd.DataFrame(sweep_rows), hide_index=True, width='stretch')
 
         # ---- Imputed features -----------------------------------------------
         if result.imputed_features:
@@ -578,7 +578,7 @@ with tab_perf:
                        gridcolor="rgba(148,163,184,0.08)", zeroline=False),
             showlegend=False,
         )
-        st.plotly_chart(fig_sc, use_container_width=True)
+        st.plotly_chart(fig_sc, width='stretch')
 
     with col_r:
         residuals = preds["error"]
@@ -611,7 +611,7 @@ with tab_perf:
             yaxis=dict(title="# events", gridcolor="rgba(148,163,184,0.08)", zeroline=False),
             showlegend=False,
         )
-        st.plotly_chart(fig_res, use_container_width=True)
+        st.plotly_chart(fig_res, width='stretch')
 
     # ---- R² by genre -------------------------------------------------------
     st.markdown("---")
@@ -649,9 +649,9 @@ with tab_perf:
             xaxis=dict(range=[0,1], gridcolor="rgba(148,163,184,0.08)", zeroline=False),
             yaxis=dict(gridcolor="rgba(0,0,0,0)"),
         )
-        st.plotly_chart(fig_g, use_container_width=True)
+        st.plotly_chart(fig_g, width='stretch')
     with gcol_r:
-        st.dataframe(gp_df, hide_index=True, use_container_width=True)
+        st.dataframe(gp_df, hide_index=True, width='stretch')
 
     # ---- Feature importances -----------------------------------------------
     st.markdown("---")
@@ -676,7 +676,7 @@ with tab_perf:
         xaxis=dict(title="Importance (gain)", gridcolor="rgba(148,163,184,0.08)", zeroline=False),
         yaxis=dict(gridcolor="rgba(0,0,0,0)"),
     )
-    st.plotly_chart(fig_imp, use_container_width=True)
+    st.plotly_chart(fig_imp, width='stretch')
 
     # ---- Worst predictions -------------------------------------------------
     st.markdown("---")
@@ -696,7 +696,7 @@ with tab_perf:
     worst["error"]       = worst["error"].apply(mu.fmt_dollars)
     worst["pct_error"]   = worst["pct_error"].apply(lambda x: f"{x:+.0f}%")
     worst.columns        = ["Artist", "Genre", "Actual", "Predicted", "Error ($)", "Error (%)"]
-    st.dataframe(worst, hide_index=True, use_container_width=True)
+    st.dataframe(worst, hide_index=True, width='stretch')
 
 
 # ---------------------------------------------------------------------------
