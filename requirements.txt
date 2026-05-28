@@ -4,4 +4,3 @@ pandas>=2.2,<4.0
 scikit-learn>=1.5,<2.0
 numpy>=1.26,<3.0
 plotly>=5.20,<7.0
-matplotlib>=3.8,<4.0
